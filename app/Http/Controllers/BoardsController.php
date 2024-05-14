@@ -35,10 +35,10 @@ class BoardsController extends Controller
         $board->user_id = $user->id;
         $board->user_name = $user->user_name;
         $board->message = $request->message;
-        $board->save();
         
         try {
             // 投稿処理...
+            $board->save();
     
             // 投稿が成功したらセッションにメッセージを保存
             session()->flash('success', '成功しました');
