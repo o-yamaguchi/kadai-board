@@ -12,14 +12,9 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $favorites = $user->favorites()->paginate(10);
-        
-        //  // 関係するモデルの件数をロード
-        // $user->loadRelationshipCounts();
-        // $all_count = $user->allMicropostsCount();
     
         return view('boards.favorites', [
             'user' => $user,
-            // 'all_count' => $all_count,
             'boards' => $favorites,
         ]);
     }

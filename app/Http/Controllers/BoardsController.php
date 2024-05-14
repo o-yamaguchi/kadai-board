@@ -20,28 +20,17 @@ class BoardsController extends Controller
                 'boards' => $boards,
             ];
         }
-            
-        // // ユーザーとフォロー中ユーザーの投稿の一覧を作成日時の降順で取得
-        // $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
-
-        
-        
-        // // dashboardビューでそれらを表示
         return view('index', $data);
     }
 
-    // postでmessages/にアクセスされた場合の「新規登録処理」
     public function store(Request $request)
     {
-        
         $user = \Auth::user();
         
-        // バリデーション
         $request->validate([
             'message' => 'required|max:140',
         ]);
         
-        // メッセージを作成
         $board = new Board;
         $board->user_id = $user->id;
         $board->user_name = $user->user_name;
@@ -57,8 +46,6 @@ class BoardsController extends Controller
             // 例外が発生したらセッションにエラーメッセージを保存
             session()->flash('error', '投稿失敗');
         }
-
-        // トップページへリダイレクトさせる
         return redirect('/');
     }
     

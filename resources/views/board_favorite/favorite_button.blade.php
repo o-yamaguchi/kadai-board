@@ -1,4 +1,3 @@
-{{--@if (Auth::id() != $micropost->user_id)--}}
 <div style="flex: 1.5;">
    @if (Auth::user()->is_favorite($board->message_id))
         {{-- お気に入り外すボタンのフォーム --}}
@@ -15,4 +14,3 @@
         </form>
     @endif
 </div>
-{{--@endif--}}

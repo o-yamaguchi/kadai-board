@@ -38,7 +38,6 @@ class AuthenticatedSessionController extends Controller
             // ログインフォームにリダイレクト
             return redirect()->back()->withInput();
         }
-    
         $request->session()->regenerate();
     
         return redirect()->intended(RouteServiceProvider::HOME);

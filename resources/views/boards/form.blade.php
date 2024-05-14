@@ -9,7 +9,6 @@
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>
-        
             <button type="submit" class="btn btn-primary normal-case">投稿する</button>
         </form>
     </div>
