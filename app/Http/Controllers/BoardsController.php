@@ -31,13 +31,14 @@ class BoardsController extends Controller
             'message' => 'required|max:140',
         ]);
         
-        $board = new Board;
-        $board->user_id = $user->id;
-        $board->user_name = $user->user_name;
-        $board->message = $request->message;
+        
         
         try {
             // 投稿処理...
+            $board = new Board;
+            $board->user_id = $user->id;
+            $board->user_name = $user->user_name;
+            $board->message = $request->message;
             $board->save();
     
             // 投稿が成功したらセッションにメッセージを保存
